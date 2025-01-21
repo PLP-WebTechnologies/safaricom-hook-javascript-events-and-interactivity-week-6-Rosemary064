@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Webpage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #ccc;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #modalOverlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    #errorMessages {
+      color: red;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Interactive Webpage</h1>
+
+  <!-- Button to toggle background color -->
+  <button id="toggleButton">Toggle Background Color</button>
+
+  <!-- Slider to adjust paragraph text size -->
+  <label for="textSlider">Adjust Text Size:</label>
+  <input type="range" id="textSlider" min="10" max="40" value="16">
+  <p id="textPara">This is a paragraph. Adjust the slider to change my size!</p>
+
+  <!-- Modal -->
+  <button id="showModalButton">Show Modal</button>
+  <div id="modalOverlay"></div>
+  <div id="modal">
+    <h2>Modal Title</h2>
+    <p>Click the button below to close this modal.</p>
+    <button id="closeModalButton">Close Modal</button>
+  </div>
+
+  <!-- Form with validation -->
+  <h2>Registration Form</h2>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <label for="name">Name (min 3 characters):</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+
+    <label for="email">Email (valid email format):</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+
+    <label for="password">Password (min 8 characters, 1 uppercase, 1 number):</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+
+    <input type="submit" value="Submit">
+    <div id="errorMessages"></div>
+  </form>
+
+  <!-- Bonus: Dropdown menu -->
+  <label for="messageDropdown">Choose a message:</label>
+  <select id="messageDropdown" onchange="showMessage()">
+    <option value="">Select an option</option>
+    <option value="Option 1">Option 1</option>
+    <option value="Option 2">Option 2</option>
+  </select>
+  <p id="dropdownMessage"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
